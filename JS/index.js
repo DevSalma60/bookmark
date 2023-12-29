@@ -72,11 +72,15 @@ function deletedata(index) {
 }
 
 function validationname() {
-  var nameregex = /([A-Z]|[a-z]|[0-9]){3,}/;
+  var nameregex = /^([A-Z]|[a-z]|[0-9]){3,}$/;
   var nameValue = sname.value;
   if (nameregex.test(nameValue) == true) {
+    sname.classList.add("is-valid");
+    sname.classList.remove("is-invalid");
     return true;
   } else {
+    sname.classList.add("is-invalid");
+    sname.classList.remove("is-valid");
     return false;
   }
 }
@@ -85,8 +89,12 @@ function validationurl() {
     /(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})(\.[a-zA-Z0-9]{2,})?/;
   var urlValue = url.value;
   if (urlregex.test(urlValue) == true) {
+    url.classList.add("is-valid");
+    url.classList.remove("is-invalid");
     return true;
   } else {
+    url.classList.add("is-invalid");
+    url.classList.remove("is-valid");
     return false;
   }
 }
